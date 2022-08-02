@@ -16,7 +16,7 @@ function AddProject(props) {
         const requestBody = { title, description };
 
         axios
-            .post(`${process.env.REACT_APP_API_URL}/api/projects`, requestBody)
+            .post(`${process.env.REACT_APP_API_URL}/projects`, requestBody)
             .then((response) => {
 
                 //update list of projects

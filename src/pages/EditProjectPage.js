@@ -17,7 +17,7 @@ function EditProjectPage(props) {
 
     useEffect(() => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`)
+            .get(`${process.env.REACT_APP_API_URL}/projects/${projectId}`)
             .then((response) => {
                 /* 
                   We update the state with the project data coming from the response.
@@ -39,7 +39,7 @@ function EditProjectPage(props) {
 
         // Make a PUT request to update the project
         axios
-            .put(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`, requestBody)
+            .put(`${process.env.REACT_APP_API_URL}/projects/${projectId}`, requestBody)
             .then((response) => {
                 // Once the request is resolved successfully and the project
                 // is updated we navigate back to the details page

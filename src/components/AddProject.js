@@ -7,6 +7,7 @@ function AddProject(props) {
 
     const [errorMsg, setErrorMsg] = useState("");
 
+    const storedToken = localStorage.getItem("authToken");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,7 +17,11 @@ function AddProject(props) {
         const requestBody = { title, description };
 
         axios
-            .post(`${process.env.REACT_APP_API_URL}/projects`, requestBody)
+            .post(
+                `${process.env.REACT_APP_API_URL}/projects`, 
+                requestBody,
+                { headers: { Authorization: `Bearer ${storedToken}` } }
+            )
             .then((response) => {
 
                 //update list of projects
